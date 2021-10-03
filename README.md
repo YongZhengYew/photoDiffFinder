@@ -18,6 +18,7 @@ We have 3 sets of data A B and C, which represent:
     C) Actual screenshots from a computer with major changes (such as scrolling a webpage or switching windows)
     
 ### File hierarchy
+```
 \_testdir
   \_1 -- Dataset A
     \_1 -- First pair of images in Dataset A
@@ -37,6 +38,7 @@ We have 3 sets of data A B and C, which represent:
     .
     .
     \_10
+```
 
 ## Notes
 
