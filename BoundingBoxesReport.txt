@@ -1,0 +1,37 @@
+Bounding Boxes
+
+We suspect that a possible bottleneck in speed is the actual transfer of data from the Raspberry Pi proper to the HAT. Previously, data representing the entire screen was sent to the HAT. In order to speed up the process, we will attempt to transfer the minimum amount of data possible; namely, we aim to only transfer the data of the parts of the screen which have changed between frames. However, the tradeoff is the overhead of this calculation.
+
+We intend to calculate "bounding boxes" around changes in the screen from one frame to another, along with the x and y coordinates of each box, and send these to the rendering function instead of the whole screen.
+
+We tested the speed of this calculation with 3 sets of data, each consisting of 10 pairs of images on which to test our program. The 3 sets represent:
+    A) Very simple images with one or two obvious changes
+    B) Actual screenshots from a computer with minor changes (such as typing text in a word processor)
+    C) Actual screenshots from a computer with major changes (such as scrolling a webpage or switching windows)
+
+METHOD 1
+
+A first attempt was made using only PIL. Compare the newest screenshot to the previous one using the Imagechops.difference() function, to produce a new Image object (which we shall call here the "difference image") that is black except for the difference between the two images. We then use two for-loops to cycle through each pixel in the difference image, horizontal row by horiontal row, from top to bottom. Horizontal rows were chosen in order to optimize for text as a cause of difference between frames.
+
+RESULTS:
+XXX
+
+This method took a lot of time, but was able to produce a single bounding box for each change as expected, minimizing the raw amount of pixel data used by the rendering function.
+
+METHOD 2
+
+A second attempt was made using PIL and OpenCV. In this method, we generate the difference image as before, and then use Canny edge detection and the built in boundingRect() function to return an array of bounding rectangles. It turned out that OpenCV's bounding box finding function was much higher-resolution and thus found tens of bounding boxes for each difference that Method 1 would only find one box for.
+
+RESULTS:
+XXX
+
+Since OpenCV is a highly optimized professional library, this method was much faster.
+
+METHOD 3
+
+In Method 3, we do the exact same thing, but instead of directly using the array of bounding rectangles, we further loop through the array of bounding rectangles in order to find the maximum and minimum x, y, width and height values. This allows us to generate one single bounding box that will enclose all the changes on screen.
+
+RESULTS:
+XXX
+
+This had a similar speed to the previous result. However, this would only produce a single bounding box in the end, and so XXXXX
