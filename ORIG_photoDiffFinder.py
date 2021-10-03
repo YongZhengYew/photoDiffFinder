@@ -10,6 +10,7 @@ import os
 import sys # only for this demonstration to take cmdline args
 IMAGE1 = sys.argv[1]
 IMAGE2 = sys.argv[2]
+ABSPATH = sys.argv[3]
 
 faulthandler.enable()
 bits_per_pixel = 8
@@ -53,7 +54,7 @@ def openBoundingBoxes(boundingBoxArray, bpp=None):
 					xCount += 1
 					newImage.putpixel((xCount, yCount), xTup)
 
-			newImage.save("BB_{number}_at_{x}x{y}.png".format(number=count, x=boundingBox.x, y=boundingBox.y))
+			newImage.save("{absPath}/METHOD1/METHOD1_{number}_{x}x{y}.png".format(absPath=ABSPATH, number=count, x=boundingBox.x, y=boundingBox.y))
 			"""bcmtest.draw_grayscale_array(
 				boundingBox.width, boundingBox.height, bpp, arr
 			)"""

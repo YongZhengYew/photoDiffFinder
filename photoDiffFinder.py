@@ -11,6 +11,7 @@ import cv2 as cv
 import sys # only for this demonstration to take cmdline args
 IMAGE1 = sys.argv[1]
 IMAGE2 = sys.argv[2]
+ABSPATH = sys.argv[3]
 
 faulthandler.enable()
 bits_per_pixel = 8
@@ -50,4 +51,4 @@ newImage = Image.fromarray(res)
 # X coordinate: minX
 # Y coordinate: minY
 # array = res
-newImage.save("result_at_{x}x{y}.png".format(x=minX, y=minY))
+newImage.save("{absPath}/METHOD3/METHOD3_{x}x{y}.png".format(absPath=ABSPATH, x=minX, y=minY))

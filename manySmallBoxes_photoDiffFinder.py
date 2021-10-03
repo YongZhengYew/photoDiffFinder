@@ -11,6 +11,7 @@ import cv2 as cv
 import sys # only for this demonstration to take cmdline args
 IMAGE1 = sys.argv[1]
 IMAGE2 = sys.argv[2]
+ABSPATH = sys.argv[3]
 
 faulthandler.enable()
 bits_per_pixel = 8
@@ -33,7 +34,7 @@ for contour in contours:
 	x,y,w,h = cv.boundingRect(contour)
 	res = cvNS[y:y+h, x:x+w]
 	newImage = Image.fromarray(res)
-	newImage.save("result_at_{x}x{y}.png".format(x=x, y=y))
+	newImage.save("{absPath}/METHOD2/METHOD2_{x}x{y}.png".format(absPath=ABSPATH, x=x, y=y))
 
 # RESULTS
 # X coordinate: minX
