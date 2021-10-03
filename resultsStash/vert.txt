@@ -1,0 +1,183 @@
+testdir/1
+testdir/1/1
+testdir/1 testdir/1/1 METHOD0
+
+real	0m2.356s
+user	0m2.297s
+sys	0m0.256s
+testdir/1/10
+testdir/1 testdir/1/10 METHOD0
+
+real	0m2.798s
+user	0m2.828s
+sys	0m0.253s
+testdir/1/2
+testdir/1 testdir/1/2 METHOD0
+
+real	0m2.309s
+user	0m2.330s
+sys	0m0.264s
+testdir/1/3
+testdir/1 testdir/1/3 METHOD0
+
+real	0m2.719s
+user	0m2.735s
+sys	0m0.262s
+testdir/1/4
+testdir/1 testdir/1/4 METHOD0
+
+real	0m3.451s
+user	0m3.444s
+sys	0m0.261s
+testdir/1/5
+testdir/1 testdir/1/5 METHOD0
+
+real	0m3.267s
+user	0m3.246s
+sys	0m0.257s
+testdir/1/6
+testdir/1 testdir/1/6 METHOD0
+
+real	0m2.735s
+user	0m2.749s
+sys	0m0.189s
+testdir/1/7
+testdir/1 testdir/1/7 METHOD0
+
+real	0m2.783s
+user	0m2.814s
+sys	0m0.251s
+testdir/1/8
+testdir/1 testdir/1/8 METHOD0
+
+real	0m2.902s
+user	0m2.911s
+sys	0m0.265s
+testdir/1/9
+testdir/1 testdir/1/9 METHOD0
+
+real	0m2.882s
+user	0m2.898s
+sys	0m0.244s
+testdir/2
+testdir/2/1
+testdir/2 testdir/2/1 METHOD0
+
+real	0m2.466s
+user	0m2.482s
+sys	0m0.238s
+testdir/2/10
+testdir/2 testdir/2/10 METHOD0
+
+real	0m5.711s
+user	0m5.663s
+sys	0m0.294s
+testdir/2/2
+testdir/2 testdir/2/2 METHOD0
+
+real	0m2.360s
+user	0m2.378s
+sys	0m0.260s
+testdir/2/3
+testdir/2 testdir/2/3 METHOD0
+
+real	0m8.063s
+user	0m7.947s
+sys	0m0.321s
+testdir/2/4
+testdir/2 testdir/2/4 METHOD0
+
+real	0m7.723s
+user	0m7.629s
+sys	0m0.308s
+testdir/2/5
+testdir/2 testdir/2/5 METHOD0
+
+real	0m8.067s
+user	0m7.945s
+sys	0m0.336s
+testdir/2/6
+testdir/2 testdir/2/6 METHOD0
+
+real	0m3.304s
+user	0m3.313s
+sys	0m0.269s
+testdir/2/7
+testdir/2 testdir/2/7 METHOD0
+
+real	0m5.753s
+user	0m5.638s
+sys	0m0.288s
+testdir/2/8
+testdir/2 testdir/2/8 METHOD0
+
+real	0m2.835s
+user	0m2.834s
+sys	0m0.255s
+testdir/2/9
+testdir/2 testdir/2/9 METHOD0
+
+real	0m4.655s
+user	0m4.636s
+sys	0m0.288s
+testdir/3
+testdir/3/1
+testdir/3 testdir/3/1 METHOD0
+
+real	0m7.059s
+user	0m6.975s
+sys	0m0.344s
+testdir/3/10
+testdir/3 testdir/3/10 METHOD0
+
+real	0m3.404s
+user	0m3.389s
+sys	0m0.254s
+testdir/3/2
+testdir/3 testdir/3/2 METHOD0
+
+real	0m3.251s
+user	0m3.254s
+sys	0m0.245s
+testdir/3/3
+testdir/3 testdir/3/3 METHOD0
+
+real	0m3.058s
+user	0m3.038s
+sys	0m0.230s
+testdir/3/4
+testdir/3 testdir/3/4 METHOD0
+
+real	0m2.820s
+user	0m2.843s
+sys	0m0.262s
+testdir/3/5
+testdir/3 testdir/3/5 METHOD0
+
+real	0m3.784s
+user	0m3.771s
+sys	0m0.241s
+testdir/3/6
+testdir/3 testdir/3/6 METHOD0
+
+real	0m3.676s
+user	0m3.661s
+sys	0m0.255s
+testdir/3/7
+testdir/3 testdir/3/7 METHOD0
+
+real	0m3.491s
+user	0m3.506s
+sys	0m0.247s
+testdir/3/8
+testdir/3 testdir/3/8 METHOD0
+
+real	0m3.400s
+user	0m3.418s
+sys	0m0.260s
+testdir/3/9
+testdir/3 testdir/3/9 METHOD0
+
+real	0m3.288s
+user	0m3.282s
+sys	0m0.264s

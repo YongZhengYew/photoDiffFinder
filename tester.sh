@@ -31,17 +31,29 @@ do
             makeElseClearDir ${dirList[$i]} "/METHOD1"
             makeElseClearDir ${dirList[$i]} "/METHOD2"
             makeElseClearDir ${dirList[$i]} "/METHOD3"
+            makeElseClearDir ${dirList[$i]} "/METHOD4"
 
-            echo $methodDir ${dirList[$i]} "METHOD1" >> results.txt
             echo FILENAMES $filenames
             echo PAIRDIR ${dirList[$i]}
-            { time python ORIG_photoDiffFinder.py $filenames ${dirList[$i]} ; } 2>> results.txt
+
+            SAVEFLAG=0
+            if [[ $1 -eq "-s" ]]
+            then
+                SAVEFLAG=1
+            fi
+
+            echo $methodDir ${dirList[$i]} "METHOD1" >> results.txt
+            { time python method1.py $filenames ${dirList[$i]} $SAVEFLAG ; } 2>> results.txt
 
             echo $methodDir ${dirList[$i]} "METHOD2" >> results.txt
-            { time python manySmallBoxes_photoDiffFinder.py $filenames ${dirList[$i]} ; } 2>> results.txt
+            { time python method2.py $filenames ${dirList[$i]} $SAVEFLAG ; } 2>> results.txt
 
             echo $methodDir ${dirList[$i]} "METHOD3" >> results.txt
-            { time python photoDiffFinder.py $filenames ${dirList[$i]} ; } 2>> results.txt
+            { time python method3.py $filenames ${dirList[$i]} $SAVEFLAG ; } 2>> results.txt
+
+            echo $methodDir ${dirList[$i]} "METHOD4" >> results.txt
+            { time python method4.py $filenames ${dirList[$i]} $SAVEFLAG ; } 2>> results.txt
+
             #/usr/bin/time -o results.txt python photoDiffFinder.py $filenames $subdir
         done
     done
