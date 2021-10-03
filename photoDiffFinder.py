@@ -51,4 +51,4 @@ newImage = Image.fromarray(res)
 # X coordinate: minX
 # Y coordinate: minY
 # array = res
-newImage.save("{absPath}/METHOD3/METHOD3_{x}x{y}.png".format(absPath=ABSPATH, x=minX, y=minY))
+#newImage.save("{absPath}/METHOD3/METHOD3_{x}x{y}.png".format(absPath=ABSPATH, x=minX, y=minY))

@@ -54,7 +54,7 @@ def openBoundingBoxes(boundingBoxArray, bpp=None):
 					xCount += 1
 					newImage.putpixel((xCount, yCount), xTup)
 
-			newImage.save("{absPath}/METHOD1/METHOD1_{number}_{x}x{y}.png".format(absPath=ABSPATH, number=count, x=boundingBox.x, y=boundingBox.y))
+			#newImage.save("{absPath}/METHOD1/METHOD1_{number}_{x}x{y}.png".format(absPath=ABSPATH, number=count, x=boundingBox.x, y=boundingBox.y))
 			"""bcmtest.draw_grayscale_array(
 				boundingBox.width, boundingBox.height, bpp, arr
 			)"""

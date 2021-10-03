@@ -34,7 +34,7 @@ for contour in contours:
 	x,y,w,h = cv.boundingRect(contour)
 	res = cvNS[y:y+h, x:x+w]
 	newImage = Image.fromarray(res)
-	newImage.save("{absPath}/METHOD2/METHOD2_{x}x{y}.png".format(absPath=ABSPATH, x=x, y=y))
+	#newImage.save("{absPath}/METHOD2/METHOD2_{x}x{y}.png".format(absPath=ABSPATH, x=x, y=y))
 
 # RESULTS
 # X coordinate: minX

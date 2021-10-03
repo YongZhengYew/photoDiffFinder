@@ -7,7 +7,8 @@ makeElseClearDir () {
     then
         mkdir $1$2
     else
-        rm $1$2/*
+        rm -rf $1$2
+        mkdir $1$2
     fi
 }
 
@@ -18,21 +19,30 @@ do
     echo $methodDir >> results.txt
     for pairDir in "$methodDir/*"
     do
-        filenames="$pairDir/1.png $pairDir/2.png"
-        echo $pairDir >> results.txt
-        
-        makeElseClearDir $pairDir "/METHOD1"
-        makeElseClearDir $pairDir "/METHOD2"
-        makeElseClearDir $pairDir "/METHOD3"
+        for ((i=0; i<10; i++))
+        do  
+            dirList=($pairDir)
+            echo ho ${dirList}
+            echo he ${dirList[$i]}
+            echo hi "${dirList[$i]}/1.png" hi
+            filenames="${dirList[$i]}/1.png ${dirList[$i]}/2.png"
+            echo ${dirList[$i]} >> results.txt
+            
+            makeElseClearDir ${dirList[$i]} "/METHOD1"
+            makeElseClearDir ${dirList[$i]} "/METHOD2"
+            makeElseClearDir ${dirList[$i]} "/METHOD3"
 
-        echo $methodDir $pairDir "METHOD1" >> results.txt
-        { time python ORIG_photoDiffFinder.py $filenames $pairDir ; } 2>> results.txt
+            echo $methodDir ${dirList[$i]} "METHOD1" >> results.txt
+            echo FILENAMES $filenames
+            echo PAIRDIR ${dirList[$i]}
+            { time python ORIG_photoDiffFinder.py $filenames ${dirList[$i]} ; } 2>> results.txt
 
-        echo $methodDir $pairDir "METHOD2" >> results.txt
-        { time python manySmallBoxes_photoDiffFinder.py $filenames $pairDir ; } 2>> results.txt
+            echo $methodDir ${dirList[$i]} "METHOD2" >> results.txt
+            { time python manySmallBoxes_photoDiffFinder.py $filenames ${dirList[$i]} ; } 2>> results.txt
 
-        echo $methodDir $pairDir "METHOD3" >> results.txt
-        { time python photoDiffFinder.py $filenames $pairDir ; } 2>> results.txt
-        #/usr/bin/time -o results.txt python photoDiffFinder.py $filenames $subdir
+            echo $methodDir ${dirList[$i]} "METHOD3" >> results.txt
+            { time python photoDiffFinder.py $filenames ${dirList[$i]} ; } 2>> results.txt
+            #/usr/bin/time -o results.txt python photoDiffFinder.py $filenames $subdir
+        done
     done
 done
