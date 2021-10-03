@@ -12,27 +12,27 @@ This will run all methods on each test case. The timing results will be saved in
 
 ## Testing Data
 
-We have 3 sets of data A B and C, which represent:
-    A) Very simple images with one or two obvious changes
-    B) Actual screenshots from a computer with minor changes (such as typing text in a word processor)
-    C) Actual screenshots from a computer with major changes (such as scrolling a webpage or switching windows)
+We have 3 sets of data, which represent:
+1. Very simple images with one or two obvious changes
+2. Actual screenshots from a computer with minor changes (such as typing text in a word processor)
+3. Actual screenshots from a computer with major changes (such as scrolling a webpage or switching windows)
     
 ### File hierarchy
 ```
 \_testdir
-  \_1 -- Dataset A
-    \_1 -- First pair of images in Dataset A
+  \_1 -- Dataset 1
+    \_1 -- First pair of images in Dataset 1
     \_2 -- etc.
     .
     .
     \_10
-  \_2 -- Dataset B
+  \_2 -- Dataset 2
     \_1
     \_2
     .
     .
     \_10
-  \_3 -- Dataset C
+  \_3 -- Dataset 3
      \_1
     \_2
     .
