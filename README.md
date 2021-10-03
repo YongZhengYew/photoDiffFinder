@@ -4,7 +4,7 @@ A tool to draw bounding boxes around the differences between two different photo
 
 ## How to Run
 
-bash```
+```bash
 ./tester.sh <-s> # include the -s option to save the resulting bounding boxes -- however, remember that saving may affect the timing results.
 ```
 
