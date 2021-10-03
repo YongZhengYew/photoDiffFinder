@@ -11,27 +11,44 @@ We tested the speed of this calculation with 3 sets of data, each consisting of 
 
 METHOD 1
 
-A first attempt was made using only PIL. Compare the newest screenshot to the previous one using the Imagechops.difference() function, to produce a new Image object (which we shall call here the "difference image") that is black except for the difference between the two images. We then use two for-loops to cycle through each pixel in the difference image, horizontal row by horiontal row, from top to bottom. Horizontal rows were chosen in order to optimize for text as a cause of difference between frames.
+A first attempt was made using only PIL. Compare the newest screenshot to the previous one using the Imagechops.difference() function, to produce a new Image object (which we shall call here the "difference image") that is black except for the difference between the two images. We then use two for-loops to cycle through each pixel in the difference image, vertical column by vertical column, from left to right.
 
-RESULTS:
-XXX
+AVERAGE RESULTS:
+Set A - 2.8202
+Set B - 5.0937
+Set C - 3.7231
 
-This method took a lot of time, but was able to produce a single bounding box for each change as expected, minimizing the raw amount of pixel data used by the rendering function.
+This method took a lot of time, but was able to produce a single bounding box for each change as expected, minimizing the raw amount of pixel data used by the rendering function. Also, PIL's Imagechops.difference() function does not seem to pick up certain differences that are obvious to the human eye.
 
 METHOD 2
 
-A second attempt was made using PIL and OpenCV. In this method, we generate the difference image as before, and then use Canny edge detection and the built in boundingRect() function to return an array of bounding rectangles. It turned out that OpenCV's bounding box finding function was much higher-resolution and thus found tens of bounding boxes for each difference that Method 1 would only find one box for.
+Same as Method 1, except we go horizontal row by horizontal row, from top to bottom. Since lines of text are almost always wider than tall, and this was an easy variation to test (just swapping a few variables in the code), we decided to try this to see if any small differences in time would occur due to unforeseen factors.
 
-RESULTS:
-XXX
+AVERAGE RESULTS:
+Set A - 2.7091
+Set B - 4.9993
+Set C - 4.042
 
-Since OpenCV is a highly optimized professional library, this method was much faster.
+No significant differences in speed were found compared to Method 0 in terms of speed, but in terms of space copied, the optimization for rows does seem to work somewhat with long rows of text.
 
 METHOD 3
 
-In Method 3, we do the exact same thing, but instead of directly using the array of bounding rectangles, we further loop through the array of bounding rectangles in order to find the maximum and minimum x, y, width and height values. This allows us to generate one single bounding box that will enclose all the changes on screen.
+A second attempt was made using PIL and OpenCV. In this method, we generate the difference image as before, and then use Canny edge detection and the built in boundingRect() function to return an array of bounding rectangles. It turned out that OpenCV's bounding box finding function was much higher-resolution and thus found tens of bounding boxes for each difference that Method 1 would only find one box for.
 
-RESULTS:
-XXX
+AVERAGE RESULTS:
+Set A - 0.4496 (errored out often)
+Set B - 0.6966
+Set C - 0.6434
 
-This had a similar speed to the previous result. However, this would only produce a single bounding box in the end, and so XXXXX
+Since OpenCV is a highly optimized professional library, this method was much faster (1/4 to 1/6 of the previous time). There are still some errors to be confronted, although curiously these only seem to occur in the highly artificial Set A of data as opposed to the much more complicated actual screenshots in Sets B and C. This is probably a fixable error with time and familiarity with OpenCV.
+
+METHOD 4
+
+In Method 4, we do the exact same thing, but instead of directly using the array of bounding rectangles, we further loop through the array of bounding rectangles in order to find the maximum and minimum x, y, width and height values. This allows us to generate one single bounding box that will enclose all the changes on screen.
+
+AVERAGE RESULTS:
+Set A - 0.3987 (errored out often)
+Set B - 0.4894
+Set C - 0.5087
+
+This had a slight improvement to the previous result, with similar error patterns. However, this would only produce a single bounding box in the end to encompass all differences between screenshots.
